@@ -126,7 +126,7 @@ goodsWrapper.addEventListener('click', (event) => {
    
 okBtn.addEventListener('click', closePopup);
 
-    input.forEach(input => {
+    inputs.forEach(input => {
         input.addEventListener('blur', function (){
             validateElement(this)
         });
