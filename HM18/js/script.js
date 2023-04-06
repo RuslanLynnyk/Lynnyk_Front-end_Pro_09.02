@@ -1,4 +1,3 @@
-'use strict';
 import { generateUL } from "./renderCategories.js";
 import { data } from "./data.js";
 
@@ -126,103 +125,47 @@ goodsWrapper.addEventListener('click', (event) => {
    
 okBtn.addEventListener('click', closePopup);
 
-    inputs.forEach(input => {
-        input.addEventListener('blur', function (){
-            validateElement(this)
-        });
-    })
+
 
     window.addEventListener('load', init);
 
+    
     function init() {
-        document.querySelector('.info').addEventListener('submit', function (event) {
+        document.myForm.addEventListener('submit', function (event) {
+            console.log(this.elements);
+            console.log([...this.elements]);
+
             event.preventDefault();
-    
-            const name = document.querySelector('.name1');
-            const city = document.querySelector('.info2');
-            const np = document.querySelector('.np');
-            const number = document.querySelector('.number');
-            const errorMessage = document.querySelector('.error-message');
-    
-            let isValid = true;
-    
-            if (name.value.trim() === '') {
-                setErrorFor(name, 'Поле ПІБ покупця не може бути порожнім');
-                isValid = false;
-            } else {
-                setSuccessFor(name);
-            }
-    
-            if (city.value === 'Виберіть місто') {
-                setErrorFor(city, 'Будь ласка, виберіть місто');
-                isValid = false;
-            } else {
-                setSuccessFor(city);
-            }
-    
-            if (np.value === 'Склад нової пошти') {
-                setErrorFor(np, 'Будь ласка, виберіть склад Нової пошти');
-                isValid = false;
-            } else {
-                setSuccessFor(np);
-            }
-    
-            let isChecked = false;
-            for (let i = 0; i < payment.length; i++) {
-                if (payment[i].checked) {
-                    isChecked = true;
-                    break;
-                }
-            }
-    
-    
-            if (number.value.trim() === '' || parseInt(number.value) < 1) {
-                setErrorFor(number, 'Будь ласка, введіть коректну кількість');
-                isValid = false;
-            } else {
-                setSuccessFor(number);
-            }
-    
-            if (isValid) {
-                this.submit();
-            } else {
-                errorMessage.innerText = 'Будь ласка, заповніть всі обов\'язкові поля';
-            }
-        });
-    
-        const inputs = document.querySelectorAll('input, textarea');
-    
+
+            [...this.elements]
+                .filter(element => element.type !== 'submit')
+                .forEach(validateElement)
+        })
+
+        const inputs = document.querySelectorAll('input');
+
         inputs.forEach(input => {
             input.addEventListener('blur', function (){
-                validateElement(this);
+                validateElement(this)
             });
-        });
-    
+        })
+
         function validateElement(element) {
             const errorElement = element.nextElementSibling;
             if (!errorElement || !errorElement.classList.contains('error-message')) {
                 return;
             }
-    
+
             if (element.hasAttribute('required') && element.value.trim() === '') {
-                setErrorFor(element, 'Це поле не може бути порожнім');
-            } else {
-                setSuccessFor(element);
+                errorElement.innerHTML ='Це поле обовязкове для заповнення';
+            } else if(element.type === 'text' && А-Я.test(element.value)) {
+                errorElement.innerHTML = 'Поле ПІБ покупця не може бути порожнім';
+            } else if(element.type ===  'number' && element.selectedIndex === 0){
+                errorElement.innerHTML = 'Будь ласка, виберіть кількість' ;
+            } 
+            else {
+                errorElement.innerHTML = '';
             }
-        }
-    
-        function setErrorFor(input, message) {
-            const formControl = input.parentElement;
-            const errorElement = formControl.querySelector('.error-message');
-            formControl.classList.add('error');
-            errorElement.innerText = message;
-        }
-    
-        function setSuccessFor(input) {
-            const formControl = input.parentElement;
-            const errorElement = formControl.querySelector('.error-message');
-            formControl.classList.remove('error');
-            errorElement.innerText = '';
         }
     }
     

@@ -267,22 +267,8 @@ body {
     transform: rotate(360deg);
 }
 
-.under-modal {
-    overflow: hidden;
-}
 
-.info{
+.form-field{
     display: flex;
     flex-direction: column;
-    margin:10px 0;
-    
-}
-
-.pay{
-    display: flex;
-    justify-content: center;
-}
-
-.payment{
-    margin-left: 10px;
 }
