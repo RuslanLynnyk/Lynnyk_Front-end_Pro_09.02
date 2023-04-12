@@ -2,7 +2,7 @@ import { generateUL } from "./renderCategories.js";
 import { data } from "./data.js";
 
 const modal = document.querySelector('.popup-wrapper');
-const okBtn = document.querySelector('.of-btn');
+const okBtn = document.querySelector('.ok-btn');
 const goodsWrapper = document.querySelector('.goods-wrapper');
 const buyWrapper = document.querySelector('.buy-wrapper');
 const goodCardWrapper = document.querySelector('.goods-card-wrapper');
@@ -122,8 +122,6 @@ goodsWrapper.addEventListener('click', (event) => {
         goodsWrapper.innerHTML = `<div>${coment.value}</div><div>${figure.value}</div><div>${pay.value}</div><div>${post.value}</div><div>${city.value}</div><div>${name.value}</div>`;
         document.body.classList.add('under-modal');
    }
-   
-okBtn.addEventListener('click', closePopup);
 
 
 
@@ -158,7 +156,7 @@ okBtn.addEventListener('click', closePopup);
 
             if (element.hasAttribute('required') && element.value.trim() === '') {
                 errorElement.innerHTML ='Це поле обовязкове для заповнення';
-            } else if(element.type === 'text' && А-Я.test(element.value)) {
+            } else if(element.type === 'text' && !/^[a-zA-ZА-Яа-яЁё\s]+$/.test(element.value)) {
                 errorElement.innerHTML = 'Поле ПІБ покупця не може бути порожнім';
             } else if(element.type ===  'number' && element.selectedIndex === 0){
                 errorElement.innerHTML = 'Будь ласка, виберіть кількість' ;
@@ -169,3 +167,4 @@ okBtn.addEventListener('click', closePopup);
         }
     }
     
+    okBtn.addEventListener('click', closePopup);
