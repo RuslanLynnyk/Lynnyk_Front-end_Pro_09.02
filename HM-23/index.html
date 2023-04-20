@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Погода</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Погода в Тернопіль</h1>
+    <p id="temperature"></p>
+    <p id="pressure"></p>
+    <p id="description"></p>
+    <p id="humidity"></p>
+    <p id="wind"></p>
+    <img id="icon" src="" alt="Погодний значок">
+    <script>
+        
+        $.ajax({
+            url: 'http://api.openweathermap.org/data/2.5/weather?q=LVIV&units=metric&APPID=5d066958a60d315387d9492393935c19',
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                $('#temperature').text('Температура: ' + data.main.temp + '°C');
+                $('#pressure').text('Тиск: ' + data.main.pressure + ' hPa');
+                $('#description').text('Опис: ' + data.weather[0].description);
+                $('#humidity').text('Вологість: ' + data.main.humidity + '%');
+                $('#wind').text('Швидкість вітру: ' + data.wind.speed + ' м/с, Напрям: ' + data.wind.deg + '°');
+                $('#icon').attr('src', 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png');
+            },
+        });
+
+        $(document).ready(function() {
+    $.ajax({
+      url: 'http://openweathermap.org/img/w/10d.png',
+      success: function(data) {
+        $('#icon').attr('src', 'http://openweathermap.org/img/w/10d.png')
+      }});
+    });
+    </script>
+</body>
+</html>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
