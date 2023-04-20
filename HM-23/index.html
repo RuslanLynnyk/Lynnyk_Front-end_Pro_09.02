@@ -25,7 +25,7 @@
     <script>
         
         $.ajax({
-            url: 'http://api.openweathermap.org/data/2.5/weather?q=TERNOPIL&units=metric&APPID=5d066958a60d315387d9492393935c19',
+            url: 'http://api.openweathermap.org/data/2.5/weather?q=LVIV&units=metric&APPID=5d066958a60d315387d9492393935c19',
             type: 'GET',
             dataType: 'json',
             success: function(data) {
@@ -34,7 +34,7 @@
                 $('#description').text('Опис: ' + data.weather[0].description);
                 $('#humidity').text('Вологість: ' + data.main.humidity + '%');
                 $('#wind').text('Швидкість вітру: ' + data.wind.speed + ' м/с, Напрям: ' + data.wind.deg + '°');
-                $('#icon').attr('src', 'http://openweathermap.org/img/w/10d.png' + data.weather[0].icon + '.png');
+                $('#icon').attr('src', 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png');
             },
         });
 
