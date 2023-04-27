@@ -26,6 +26,6 @@ function* Foo() {
   return iterator;
 }
 
-const iterator1 = Boo();
-console.log(iterator.next().value); // 1
-console.log(iterator.next().done); // true
+const iterator2 = Boo();
+console.log(iterator.next().value); 
+console.log(iterator.next().done); 
