@@ -4,77 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="conteiner">
-        <div class="wrapper">
-            <div class="categories">
+  <div class="container">
+    <div class="wrapper">
+        <div class="categories">
+            
+        </div>
+        <div class="goods">
+            <div class="goods-wrapper">
+                
+                <div class="goods-card-wrapper">
+                    
+                </div>
+            </div>                                
+        </div>
+        <div class="buy">
+            <div class="buy-wrapper">
+                
             </div>
-    <div class="goods">
-        <div class="goods-wrapper">
-            <h2 class="goods-header"></h2>
-            <div class="goods-card-wrapper"></div>
         </div>
     </div>
-    <div class="buy">
-        <div class="buy-wrapper"> </div>
-    </div>
-    </div>
-    <div class="popup-wrapper ">
-        <div class="popup-window">
-            <div class="contact-form">
-                <div class="popup-form">
-                    <form name="myForm">
-                       <div class="form-field">
-                        <label >ПІБ покупця:</label>
-                        <input class="name1" type="text" required/>
-                        <span class="error-message"></span>
-                       </div>
-                        <div class="form-field">
-                        <label for="city">Місто:</label>
-                        <select class="info2" required placeholder ="Виберіть місто">
-                          <option value="Київ">Київ</option>
-                          <option value="Харків">Харків</option>
-                          <option value="Львів">Львів</option>
-                          <option value="Одеса">Одеса</option>
-                        </select>
+    <div class = "popup-wrapper">
+        <div class = "popup-window">
+            <div class = "contact-form">
+                <div class = "popup-form">
+                    <h3 class = "gratitude">Підтвердження замовлення</h3>
+                    <div class="good-detail">
+                        <div class="good-detail-left">
+                            <div class="good-detail-img">
+                                <img alt="зображення товару" class="good-detail-img-item">
+                            </div>
                         </div>
-                        <div class="form-field">
-                        <label for="nova_poshta">Склад Нової пошти:</label>
-                      <select class="np1" name="np" id="np" required>
-                        <option > Склад нової пошти</option>
-                        <option value="Нова Пошта №1">Нова Пошта №1</option>
-                        <option value="Нова Пошта №2">Нова Пошта №2</option>
-                        <option value="Нова Пошта №3">Нова Пошта №3</option>
-                        <option value="Нова Пошта №4">Нова Пошта №4</option>
-                        <option value="Нова Пошта №5">Нова Пошта №5</option>
-                      </select>
+                        <div class="good-detail-right">
+                            <div class="good-detail-name"></div>
+                            <div class="good-detail-price"></div>
+                            <div class="form-data-header">Деталі замовлення</div>
+                            <div class = "full-name-text data-text"></div>
+                            <div class = "quantity-text data-text"></div>
+                            <div class = "city-text data-text"></div>
+                            <div class = "new-post-text data-text"></div>
+                            <div class = "payment-text data-text"></div>
+                            <div class = "comment-text data-text"></div>
+                            <div class = "total-text data-text"></div>
                         </div>
-                        <div class="form-field">
-                      <label>Спосіб оплати:</label>
-                      <div class="pay">
-                      <input class="payment" type="radio" name="payment_method" value="Післяплата" required/>Післяплата</input>
-                      <input class="payment1" type="radio" name="payment_method1" value="Банківська картка" required/>Банківська картка</input>
-                      </div>
-                      <span class="error-massege"></span>
-                      <div class="form-field">
-                        <label >Кількість:</label>
-                        <input class="number" type="number" name="quantity" min="1" required/>
-                        </div>
-                        <div class="form-field">
-                        <label for="comment">Коментар до замовлення:</label>
-                        <textarea class="comment" id="comment" name="comment"></textarea>
-                      </div>
-                      <button class="ok-btn" type="submit" >Купити</button>      
-                      </form>             
+                    </div>
+                    
+                    <div class="btn-wrap">
+                        <button class = "ok-btn">Оформити замовлення</button>
+                        <button class = "edit-data-btn">Редагувати дані</button>
+                    </div>                        
                 </div>
-              </div>
             </div>
-         </div>
-     </div>
- </div>
+        </div>
+    </div>
+</div>
  <script type="module" src="./js/script.js"></script>
 </body>
 </html>
