@@ -1,17 +1,20 @@
 
+
+  
 class Hamburger {
-    constructor(size, toppings) {
+    constructor(size, topping) {
       this.size = size;
-      this.toppings = toppings;
+      this.toppings = [];
+      this.addTopping(topping);
     }
   
     static SIZE_SMALL = { price: 50, calories: 20 };
     static SIZE_LARGE = { price: 100, calories: 40 };
-
+  
     static TOPPING_CHEESE = { price: 10, calories: 20 };
     static TOPPING_SALAD = { price: 20, calories: 5 };
     static TOPPING_POTATO = { price: 15, calories: 10 };
-
+  
     static OPTION_SPICE = { price: 15, calories: 0 };
     static OPTION_MAYO = { price: 20, calories: 5 };
   
@@ -33,17 +36,22 @@ class Hamburger {
       return calories;
     }
   
+    addTopping(topping) {
+      this.toppings.push(topping);
+    }
+  
     addSpice() {
-      this.toppings.push(Hamburger.OPTION_SPICE);
+      this.addTopping(Hamburger.OPTION_SPICE);
     }
   
     addMayo() {
-      this.toppings.push(Hamburger.OPTION_MAYO);
+      this.addTopping(Hamburger.OPTION_MAYO);
     }
   }
+  
   const myHamburger = new Hamburger(
     Hamburger.SIZE_SMALL,
-    [Hamburger.TOPPING_CHEESE, Hamburger.TOPPING_SALAD]
+    Hamburger.TOPPING_CHEESE
   );
   
   console.log("Ціна гамбургера: " + myHamburger.calculatePrice() + " тугриків");
@@ -54,4 +62,5 @@ class Hamburger {
   
   console.log("Ціна гамбургера після додавання опцій: " + myHamburger.calculatePrice() + " тугриків");
   console.log("Калорійність гамбургера після додавання опцій: " + myHamburger.calculateCalories() + " калорій");
+  
   
